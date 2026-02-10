@@ -5,19 +5,23 @@
  * @format
  */
 
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
+import { StatusBar, StyleSheet, View, ScrollView } from 'react-native';
 import {
   SafeAreaProvider,
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
+import HeaderBanner from './src/components/HeaderBanner';
+import MoneyTransfers from './src/components/MoneyTransfers';
+import RechargeBills from './src/components/RechargeBills';
+import PromoSlider from './src/components/PromoSlider';
+import Loans from './src/components/Loans';
+import LoanPromo from './src/components/LoanPromo';
+import HorizontalPromos from './src/components/HorizontalPromos';
 
 function App() {
-  const isDarkMode = useColorScheme() === 'dark';
-
   return (
     <SafeAreaProvider>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+      <StatusBar barStyle="light-content" backgroundColor="#F5A623" />
       <AppContent />
     </SafeAreaProvider>
   );
@@ -27,18 +31,27 @@ function AppContent() {
   const safeAreaInsets = useSafeAreaInsets();
 
   return (
-    <View style={styles.container}>
-      <NewAppScreen
-        templateFileName="App.tsx"
-        safeAreaInsets={safeAreaInsets}
-      />
-    </View>
+    <ScrollView style={styles.container}>
+      <View style={[styles.topSection, { paddingTop: safeAreaInsets.top }]}>
+        <HeaderBanner />
+      </View>
+      <MoneyTransfers />
+      <HorizontalPromos />
+      <RechargeBills />
+      <PromoSlider/>
+      <Loans />
+      <LoanPromo />
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#f5f5f5',
+  },
+  topSection: {
+    backgroundColor: '#F5A623',
   },
 });
 
