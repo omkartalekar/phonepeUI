@@ -10,12 +10,11 @@ import {
   SafeAreaProvider,
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
+import LinearGradient from 'react-native-linear-gradient';
 import HeaderBanner from './src/components/HeaderBanner';
 import MoneyTransfers from './src/components/MoneyTransfers';
 import RechargeBills from './src/components/RechargeBills';
-import PromoSlider from './src/components/PromoSlider';
 import Loans from './src/components/Loans';
-import LoanPromo from './src/components/LoanPromo';
 import HorizontalPromos from './src/components/HorizontalPromos';
 
 function App() {
@@ -31,16 +30,17 @@ function AppContent() {
   const safeAreaInsets = useSafeAreaInsets();
 
   return (
-    <ScrollView style={styles.container}>
-      <View style={[styles.topSection, { paddingTop: safeAreaInsets.top }]}>
+    <ScrollView style={styles.container} contentContainerStyle={styles.scrollContent}>
+      <LinearGradient
+        colors={['#F5A623', '#F5A623', 'transparent']}
+        style={[styles.topSection, { paddingTop: safeAreaInsets.top }]}
+      >
         <HeaderBanner />
-      </View>
+      </LinearGradient>
       <MoneyTransfers />
       <HorizontalPromos />
       <RechargeBills />
-      <PromoSlider/>
       <Loans />
-      <LoanPromo />
     </ScrollView>
   );
 }
@@ -49,6 +49,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#f5f5f5',
+  },
+  scrollContent: {
+    paddingBottom: 30,
   },
   topSection: {
     backgroundColor: '#F5A623',

@@ -9,10 +9,11 @@ import {
 export default function HorizontalPromos() {
   const promos = [
     { icon: '🎁', text: 'Refer → ₹200' },
-    { icon: '💰', text: 'Start Gold savings @ ₹10' },
-    { icon: '🏍️', text: '20% Off+ on Bike Insurance' },
-
     { icon: '🪙', text: 'Secure savings in pure Silver' },
+
+    { icon: '🏍️', text: '20% Off+ on Bike Insurance' },
+    { icon: '💰', text: 'Start Gold savings @ ₹10' },
+
   ];
 
   return (
@@ -40,7 +41,7 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     paddingHorizontal: 20,
-    alignItems: 'center',
+    paddingVertical: 3,
   },
   promoCard: {
     backgroundColor: 'white',

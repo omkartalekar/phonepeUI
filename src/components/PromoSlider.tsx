@@ -20,7 +20,7 @@ export default function PromoSlider() {
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 20,
-    paddingVertical: 15,
+    paddingVertical: 10,
   },
   cardsRow: {
     flexDirection: 'row',
